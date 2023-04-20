@@ -132,7 +132,6 @@ function filterByName(list) {
 }
 
 function filterByDate(list) {
-    let filteredByDate;
     let date_from = document.getElementById("filter-taskDeadline-from").value;
     date_from = date_from.split("-");
     date_from = new Date(date_from[0], date_from[1]-1, date_from[2]);
@@ -149,12 +148,10 @@ function filterByDate(list) {
         if(taskDate >= date_from && taskDate <= date_to) {
             !filteredTasks.includes(task) ? filteredTasks.push(task) : null;
         } else {
-            filteredTasks.pop(task);
+            filteredTasks.includes(task) ? filteredTasks.splice(filteredTasks.indexOf(task)) : null;
         }
     })
-    return filteredByDate;
 }
-
 
 document.getElementById("btn-reset-date").addEventListener('click', () => {
     document.getElementById("filter-taskDeadline-from").value = '';
