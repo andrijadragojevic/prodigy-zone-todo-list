@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <link rel="stylesheet"
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" 
+          href=
+"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src=
+"https://code.jquery.com/jquery-3.3.1.slim.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    </script>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+    </script>
+  
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+      
+        h1,
+        container {
+            color: green;
+        }
+    </style>
+</head>
+  
+<body>
+    <h1 class="container">
+        GeeksforGeeks
+    </h1>
+    <div class="container">
+        <div class="datepicker date 
+                    input-group p-0 shadow-sm">
+            <input id="reservationDate" 
+                   type="text"
+                   placeholder="Choose a date" 
+                   class="form-control py-4 px-4" />
+            <div class="input-group-append"> 
+              <span class="input-group-text px-4">
+                  <i class="fa fa-clock-o"></i>
+                </span> 
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <p id="showdate"> No Date is Picked </p>
+    </div>
+  
+    <script>
+        $(".datepicker").datepicker({
+            clearBtn: true,
+            format: "dd/mm/yyyy",
+        });
+        $(".datepicker").on("change", function() {
+            let pickedDate = $("input").val();
+            $("#showdate").text(
+            `You picked this ${pickedDate} Date`);
+        });
+    </script>
+</body>
+  
+</html>
